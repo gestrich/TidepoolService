@@ -215,6 +215,14 @@ extension TidepoolService: TLogging {
 }
 
 extension TidepoolService: RemoteDataService {
+    
+    public func fetchRemoteCommands() async throws -> [LoopKit.RemoteCommand] {
+        return []
+    }
+    
+    public func fetchPendingRemoteCommands() async throws -> [LoopKit.RemoteCommand] {
+        return []
+    }
 
     public func uploadTemporaryOverrideData(updated: [TemporaryScheduleOverride], deleted: [TemporaryScheduleOverride], completion: @escaping (Result<Bool, Error>) -> Void) {
         // TODO: Implement
