@@ -394,6 +394,23 @@ extension TidepoolService: RemoteDataService {
             }
         }
     }
+    
+    public func commandFromPushNotification(_ notification: [String: AnyObject]) async throws -> RemoteCommand {
+        
+        enum TidepoolPushNotificationError: LocalizedError {
+            case remoteCommandsNotSupported
+        }
+        
+        throw TidepoolPushNotificationError.remoteCommandsNotSupported
+    }
+    
+    public func fetchRemoteCommands() async throws -> [LoopKit.RemoteCommand] {
+        return []
+    }
+    
+    public func fetchPendingRemoteCommands() async throws -> [LoopKit.RemoteCommand] {
+        return []
+    }
 
     func calculateSettingsData(_ stored: [StoredSettings], for userId: String, hostIdentifier: String, hostVersion: String) -> ([TDatum], [TDatum], TControllerSettingsDatum?, TCGMSettingsDatum?, TPumpSettingsDatum?, TPumpSettingsOverrideDeviceEventDatum?) {
         var created: [TDatum] = []
