@@ -627,6 +627,9 @@ extension TidepoolService: RemoteDataService {
     enum RemoteNotificationError: LocalizedError {
         case remoteCommandsNotSupported
     }
+    
+    public func loopDidComplete() async throws {
+    }
 }
 
 extension KeychainManager: SessionStorage {
