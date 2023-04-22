@@ -612,14 +612,16 @@ extension TidepoolService: RemoteDataService {
             throw error
         }
     }
-
-    public func commandFromPushNotification(_ notification: [String: AnyObject]) async throws -> RemoteCommand {
-
-        enum TidepoolPushNotificationError: LocalizedError {
-            case remoteCommandsNotSupported
-        }
-
-        throw TidepoolPushNotificationError.remoteCommandsNotSupported
+    
+    public func handleRemoteNotification(_ notification: [String: AnyObject]) async throws {
+        throw RemoteNotificationError.remoteCommandsNotSupported
+    }
+    
+    enum RemoteNotificationError: LocalizedError {
+        case remoteCommandsNotSupported
+    }
+    
+    public func processPendingRemoteCommands() async throws {
     }
 }
 
