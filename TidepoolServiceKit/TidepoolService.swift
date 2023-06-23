@@ -613,7 +613,7 @@ extension TidepoolService: RemoteDataService {
         }
     }
     
-    public func handleRemoteNotification(_ notification: [String: AnyObject]) async throws {
+    public func remoteNotificationWasReceived(_ notification: [String: AnyObject]) async throws {
         throw RemoteNotificationError.remoteCommandsNotSupported
     }
     
