@@ -621,7 +621,7 @@ extension TidepoolService: RemoteDataService {
         case remoteCommandsNotSupported
     }
     
-    public func processPendingRemoteCommands() async throws {
+    public func loopDidComplete() async throws {
     }
 }
 
